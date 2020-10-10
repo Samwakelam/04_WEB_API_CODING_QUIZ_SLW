@@ -1,18 +1,93 @@
 var quizSet = [
 
-    { question: "What is 7+8?",
-      choice:['3', '4', '15'],
-      answer: '15'
+    { question: "Using GitBash, how do you open the Visual Studio console?" ,
+      choice:['code', 'open', "git vs"],
+      answer: 'code'
     },
     
-    { question: "What is 3+5?",
-      choice:[ '3', '4', '8'  ],
-      answer: '8'
+    { question: "In HTML, to make a text element bold which tag do you use?",
+      choice:[ 'b', 'em', 'strong'  ],
+      answer: 'strong'
     },
 
-    { question: "What is 1+2?",
-      choice:['1', '3', '2'],
-      answer: '3'
+    { question: "What does HTML handle in a web page?",
+      choice:['Snazzy effects', 'Basic mark-up of a page', 'Fanciful colours and layouts'],
+      answer: 'Basic mark-up of a page'
+    },
+
+    { question: "In an HTML element tag, what are the additional information references known as?",
+      choice:['Attributes', 'Properties', 'Methods'],
+      answer: 'Attributes'
+    },
+
+    { question: "An element content has the width 10px, margin of 4px, padding of 2px, and a boarder of 2px. What is the total width of the element? ",
+      choice:['18px', '14px', '26px'],
+      answer: '26px'
+    },
+
+    { question: "Which target attribute will open the linked webpage in a new browser window or tab?",
+      choice:['_blank', '_self', '_top'],
+      answer: '_blank'
+    },
+
+    { question: "Which is the right CSS property syntax for background colour of an element",
+      choice:['Background_Color', 'backgroundColor', 'background-color'],
+      answer: 'background-color'
+    },
+
+    { question: "Which of these is not a block element?",
+      choice:['aside', 'article', 'object'],
+      answer: 'object'
+    },
+
+    { question: "An element has an id of example. In CSS what is the correct way to target this element?",
+      choice:['#example', '.example', 'example'],
+      answer: '#example'
+    },
+
+    { question: "In the HTML where should you place the <script> tags for your javascript?",
+      choice:['In the head element', 'At the top of the body element', 'At the bottom of the body element', "Outside of the HTML element"],
+      answer: 'At the bottom of the body element'
+    },
+
+    { question: "Using Javascript which is the best way to get a message to the user?",
+      choice:['alert()', 'prompt()', 'confirm()', "console.log()"],
+      answer: 'alert()'
+    },
+
+    { question: "Which coding language is the $ sign most associated?",
+      choice:['Bootstrap', 'Javascript', 'JQuery', "CSS", "HTML"],
+      answer: 'JQuery'
+    },
+
+    { question: "Which parenthesis creates an object?",
+      choice:['[]', '{}', '()'],
+      answer: '{}'
+    },
+
+    { question: "The 'this' keyword in javascript ... ",
+      choice:['...refers to the owner of the document window', '... refers to the owner of the object', '... refers to the object', "... refers to the document window", "... refers to the last declared object"],
+      answer: '... refers to the owner of the object'
+    },
+
+    { question: "Which of these is not an event?",
+      choice:['onclick', 'onmouseover', 'onfocus', "onwalkaway"],
+      answer: 'onwalkaway'
+    },
+
+    { question: "Which of these methods will add an element to an array?",
+      choice:['pop()', 'push()', 'join()'],
+      answer: 'push()'
+    },
+
+    { question: "Which of these selectors will select all the elements that are the  children of a specified element?",
+      choice:['div>p', 'div p', 'div.p'],
+      answer: 'div>p'
+    },
+
+    { question: "What colour is the preset bootstrap value for .bg-info",
+      choice:['purple', 'teal', 'blue'],
+      answer: 'teal'
     },
 ]
 // Pseudo Code
@@ -88,7 +163,7 @@ function startGame(){
 
 var timer;
 function startTimer() {
-  timeCounter = 15;
+  timeCounter = 100;
   myTimer.innerHTML = "Timer: " + timeCounter;
   timer = setInterval(function() {
     timeCounter--
