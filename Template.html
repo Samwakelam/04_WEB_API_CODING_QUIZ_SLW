@@ -1,0 +1,61 @@
+<!doctype html> 
+<html>
+    <head>
+        <title>Coding Quiz</title>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="assets/css/reset.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+        
+        <!-- My basic site style stylesheet -->
+        <link rel="stylesheet" type="text/css" href="assets/css/styles.css"/>
+    
+    </head>
+    <body>
+        
+          <div class="variable" id="time">Timer</div>
+          <div class="clearfix"></div>
+          <div class="variable" id="score">Score</div>
+          <div class="clearfix"></div>
+        
+        
+        <section class="container-fluid"> 
+            <div class="row question-container" id="row1">
+                <h1 id="welcome"  >Welcome to my QUIZ!</h1> 
+                <h3 id="question" class="hide">This will be the question </h3>
+            </div>
+            <div class="row btn-selector" id="row2">
+                <p class=""> These will be the initial instructions for playing 
+                  the game, possibly input a name feild later.</p>
+                <button class="" type="button"> this is an ansewer </button>
+                <button class="" type="button"> this is an answer </button>
+                <button class="" type="button"> this is an ansir </button>
+                <div id="para">
+                    <p class="answer" id="correct"> Correct </p>
+                    <p class="answer" id="wrong"> Wrong Answer</p>
+                </div>
+            </div>
+            <div class="clearfix">
+            </div>
+            <div class="row" id="row3">
+                <button type="button" id="start-btn"><b>Start!</b></button> 
+                <button type="button" class="hide" id="next-btn"><b>Next Question</b></button>
+            </div>
+        </section>
+
+
+      <script 
+        type="text/javascript"
+        src="assets/javascript/javascripts.js"></script>  
+      <script
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+      </script>
+    <!-- Bootstrap CDN -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    </body>
+</html>
+
+<!---->

@@ -1,0 +1,193 @@
+/*Body Border */
+
+html {
+    border:5px solid black;
+    min-height: 100vh;
+}
+
+body {
+    background-image: url(../images/BodyBackgroundSmall.png);
+    background-repeat: repeat;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* setting style for the timer and score variables  */
+div.variable {
+    float: right;
+    color: black;
+    background-color: white;
+    text-align: center;
+    padding: 2px;
+    border: 5px solid black;
+    display: inline; 
+    margin: 5px;
+    position: absolute;
+    z-index: 1;
+}
+
+div#time {
+    right: 15px;
+    top: 50px;
+    box-shadow: 5px 5px 7px 5px rgba(63, 102, 94, 0.75);
+}
+
+div#score {
+    right: 15px;
+    top: 6px;
+    box-shadow: 5px 5px 7px 5px rgba(63, 102, 94, 0.75);
+}
+
+.clearfix {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+/* setting section styling  */
+
+section.container-fluid {
+    background-color: rgb(155,223,242);
+    background-repeat: repeat;
+    border: black 5px solid;
+    width: 80%;
+    height: 80%;
+    margin: 10%;
+    box-shadow: 10px 10px 7px rgba(63, 102, 94, 0.75);
+}
+
+/* each row styling within the section  */
+div#row1 {
+    background-color: rgb(155,223,242);
+    padding: 5px;
+}
+div#row2 {
+    background-color: rgb(187,146,212);
+    padding: 5px;
+}
+div#row3 {
+    background-color: rgb(251,152,216);
+    padding: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+ 
+/* content styling */
+h1 {
+    color: black;
+    background-color: white;
+    text-align: center;
+    padding: 5px;
+    border: 5px solid black;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+h3 {
+    color: black;
+    background-color: white;
+    text-align: center;
+    padding: 5px;
+    border: 4px solid black;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+p {
+    color: black;
+    background-color: white;
+    padding: 5px;
+    border: 4px solid black;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+button {
+    color: black;
+    background-color: white;
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+    border: 4px solid black;
+}
+
+button:hover {
+    background-color: rgb(155,223,242);
+    border: 4px solid grey;
+}
+
+.hide {
+    display: none;
+}
+
+/* style the buttons for the choices to appear in */
+div#indicator, div#quizQuestions, div#nameInput {
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+div#quizQuestions>button {
+    width: 100%;
+    display: block;
+}
+
+/* style the indicators that pop up  */
+p.answer {
+    width: 45%;
+    display: inline;
+    margin: 0;
+    padding: 5px; 
+    visibility: hidden;
+}
+
+p#correct {
+    background-color: rgb(146,220,207);
+    margin-right: 2px;
+    float: left;
+}
+
+p#wrong { 
+    background-color: rgb(251,152,216);
+    margin-left: 2px;
+    float: right;
+}
+
+/* style the form  */
+
+input#name {
+    color: black;
+    background-color: white;
+    padding: 5px;
+    margin: 5px;
+    border: 4px solid black;
+}
+
+label {
+    padding-left: 9px;
+    margin-bottom: 0px;
+}
+
+button#name-btn {
+    /* how do i get it to fill remaining space? */
+}
+
+/* p:hover {
+    background-color: rgb(155,223,242);
+    border: 4px solid grey;
+} */
+
+
