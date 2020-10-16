@@ -61,8 +61,8 @@ var quizSet = [
     },
 
     { question: "Which parenthesis creates an object?",
-      choice:['[]', '{}', '()'],
-      answer: '{}'
+      choice:['[ ]', '{ }', '( )'],
+      answer: '{ }'
     },
 
     { question: "The 'this' keyword in javascript ... ",
@@ -312,29 +312,47 @@ function endQuiz() {
 }
 
 // save the user name and score
+
 function getInputValue(){
   
   var userName = document.getElementById("name").value;
   console.log("user inputted = " + userName);
   console.log("saveScore = " + saveScore);
 
+  var scoreboard = [];
+  
+  scoreboard.push( { Name: userName, Score: saveScore } );
+  console.log("scoreboard = " + scoreboard);
+  console.log("user inputted 2 = " + userName);
+  console.log("saveScore = " + saveScore);
+  
+  
   localStorage.setItem("Name", userName);
   localStorage.setItem("Score", saveScore);
+  localStorage.setItem("scoreboard", JSON.stringify(scoreboard));
+  
 
 }
 
 function returnInputValue() {
   console.log(localStorage.getItem("Name"));
   if (localStorage.getItem("Name") == null){
-    highScoreTable.textContent = "You have not played my quiz before. Why not try again and beat yourself?";
+    highScoreTable.textContent = "You have not played my quiz before. \
+    Why not try again and beat yourself?";
+    
   } else{
-    var showUserName = localStorage.getItem("Name")
-    var showLastScore = localStorage.getItem("Score")
+    var showUserName = localStorage.getItem("Name");
+    var showLastScore = localStorage.getItem("Score");
+    var showScoreboard = localStorage.getItem("scoreboard");
 
-    highScoreTable.textContent= showUserName + " = " + showLastScore;
+    highScoreTable.textContent = showUserName + " = " + 
+    showLastScore + "<br/>" + "Highscores:" + "<br>" + 
+    JSON.parse(showScoreboard.Name) + JSON.parse(showScoreboard.Score);
   }
 
 }
+
+
 
 function tryAgain(){
   console.log("game re-started");
