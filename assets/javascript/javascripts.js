@@ -311,43 +311,80 @@ function endQuiz() {
   return saveScore = finalScore;
 }
 
-// save the user name and score
-
+// function checkInputValue(){
+  
+  //   if(localStorage.getItem("Name") == null){
+    //     let scoreboard = [];
+    //     return scoreboard;
+    //   } else {
+      //     return scoreboard;
+      //   }
+      
+      // }
+      
+      // save the user name and score
+var scoreboard = [];
 function getInputValue(){
+
+  // checkInputValue();
   
   var userName = document.getElementById("name").value;
   console.log("user inputted = " + userName);
-  console.log("saveScore = " + saveScore);
-
-  var scoreboard = [];
+  console.log("saveScore2 = " + saveScore);
   
   scoreboard.push( { Name: userName, Score: saveScore } );
   console.log("scoreboard = " + scoreboard);
   console.log("user inputted 2 = " + userName);
   console.log("saveScore = " + saveScore);
   
-  
   localStorage.setItem("Name", userName);
   localStorage.setItem("Score", saveScore);
-  localStorage.setItem("scoreboard", JSON.stringify(scoreboard));
+  localStorage.setItem("storedScore", JSON.stringify(scoreboard));
   
-
+ return scoreboard;
 }
 
 function returnInputValue() {
-  console.log(localStorage.getItem("Name"));
+  console.log("localStorage get name" , localStorage.getItem("Name"));
   if (localStorage.getItem("Name") == null){
     highScoreTable.textContent = "You have not played my quiz before. \
     Why not try again and beat yourself?";
     
   } else{
+
+    
     var showUserName = localStorage.getItem("Name");
     var showLastScore = localStorage.getItem("Score");
-    var showScoreboard = localStorage.getItem("scoreboard");
+    var showScoreboard = localStorage.getItem("storedScore");
+    var scoreObject =JSON.parse(showScoreboard);
 
-    highScoreTable.textContent = showUserName + " = " + 
-    showLastScore + "<br/>" + "Highscores:" + "<br>" + 
-    JSON.parse(showScoreboard.Name) + JSON.parse(showScoreboard.Score);
+    function getHighScores(){
+      console.log("function running");
+
+      console.log("scoreObject = ", scoreObject);
+      scoreObject.sort(function(a,b) {
+        return b.Score - a.Score;
+      });
+      console.log("scoreObject sorted = ", scoreObject);
+      console.log("scoreObject.length = ", scoreObject.length);
+
+      // if (scoreObject.length > 3){
+      //   console.log("if is fireing");
+      //   scoreObject.pop();
+      // }
+      console.log("scoreObject consolodated = ", scoreObject);
+
+      var showHighScores = "";
+      for (let index = 0; index < scoreboard.length; index++) {
+        showHighScores += scoreObject[index].Name + " = " + scoreObject[index].Score + "<br>";
+      }
+      return showHighScores;
+    }
+
+    highScoreTable.innerHTML = "Your last score: " + showUserName + " = " + 
+    showLastScore 
+    + "<br/>" + "Highscores:" + "<br>" + getHighScores();
+    
   }
 
 }
@@ -366,8 +403,7 @@ function tryAgain(){
     document.getElementById("nameInput").classList.add("hide");
 
     welcome.innerHTML = "Welcome to my QUIZ!";
-    gameInstructions.innerHTML = "These will be the initial instructions for playing \
-    the game, possibly input a name feild later."
+    gameInstructions.innerHTML = "When you are ready, click start. You will be asked a series of questions while a timer counts down to zero. Wrong answers will deduct time while correct answers will add time. You can end the game at any stage but it will affect your score. Goodluck!"
     gameInstructions.style.textAlign = "left";
 
     // reseting all variables 

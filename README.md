@@ -45,8 +45,36 @@ I have made a couple of amendments to the way the quiz works.
 ## Improvements
 
 I wish to look at storing an object in media storage to allow the user to save momre highscores and names and clear the sgtorage if they wish to start scoring again. 
+(Update:19.10.2020) I have managed to get an object array to save into local storage and output a sorted list of scores highest to lowest. 
+I have not managed yet, to stop the object overwriting after the page is saved and refreshed, nore getting the if statment to fire to remove the lowest high scores after multiple playthroughs. 
+
+```
+function getHighScores(){
+      console.log("function running");
+
+      console.log("scoreObject = ", scoreObject);
+      scoreObject.sort(function(a,b) {
+        return b.Score - a.Score;
+      });
+      console.log("scoreObject sorted = ", scoreObject);
+      console.log("scoreObject.length = ", scoreObject.length);
+
+      if (scoreObject.length > 3){
+       console.log("if is fireing");
+       scoreObject.pop();
+      }
+      console.log("scoreObject consolodated = ", scoreObject);
+
+      var showHighScores = "";
+      for (let index = 0; index < scoreboard.length; index++) {
+        showHighScores += scoreObject[index].Name + " = " + scoreObject[index].Score + "<br>";
+      }
+      return showHighScores;
+    }
+```
 
 I need to clean up a little on the responsive webpage. 
+(Update:19.10.2020) There is jerking on the page when the input field is typed into, would love some feedback here? 
 
 ## Credits 
 
