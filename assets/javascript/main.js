@@ -90,27 +90,6 @@ var quizSet = [
       answer: 'teal'
     },
   ]
-  // Pseudo Code
-  
-  // 1. when the start button is pressed start quiz
-  
-// 2. start the quiz 
-
-// 3. set the timer to ....
-// 4. set the score to 0 
-// 5. when an answer is selected
-//     if the answer is correct increment the score and display correct
-//     add 10 seconds to the timer
-//     save the score
-//     else display wrong and highlight the riht answer. 
-//     deduct 10 seconds from the timer. 
-// 6. display next question and clear last option
-//     reset 
-
-// 7. when timer =0 stop the quiz 
-//     display the score
-
-//     can i save high score? 
 
 
 // button variables 
@@ -213,8 +192,8 @@ function showQuestion(){
 
 // Called on click within show question
 function answerSubmitted() {
-    console.log("answer chosen = " + this.value);
-    console.log("Correct answer should be = " + quizSet[quizSetIndex].answer)
+    // console.log("answer chosen = " + this.value);
+    // console.log("Correct answer should be = " + quizSet[quizSetIndex].answer)
     if (this.value === quizSet[quizSetIndex].answer) {
       var answerCorrect = document.getElementById("correct");
       answerCorrect.style.visibility = "visible"
@@ -278,18 +257,18 @@ function endQuiz() {
   clearInterval(timer);
 
   // what were the final results? 
-  console.log("Score = " + scoreCounter);
-  console.log("Wrong answers = " + wrongScoreCounter);
-  console.log("time left = " + timeCounter + " seconds");
+  // console.log("Score = " + scoreCounter);
+  // console.log("Wrong answers = " + wrongScoreCounter);
+  // console.log("time left = " + timeCounter + " seconds");
   
   var timeAdjustment = (timeCounter -= wrongScoreCounter);
   if (timeAdjustment < 0) {
     timeCounter = 0;
   }
-  console.log("timeAdjustment = " + timeCounter);
+  // console.log("timeAdjustment = " + timeCounter);
   
   var finalScore = (scoreCounter * timeCounter) + scoreCounter;
-  console.log("Final Score = " + finalScore);
+  // console.log("Final Score = " + finalScore);
   
   // Display end of game information and score
   document.querySelector("div.btn-selector>p").classList.remove("hide");
@@ -323,7 +302,7 @@ var scoreBoard = [];
 
 // called at endQuiz function
 function returnInputValue() {
-  console.log("localStorage get name" , localStorage.getItem("Name"));
+  // console.log("localStorage get name" , localStorage.getItem("Name"));
   if (localStorage.getItem("Name") == null){
     highScoreTable.textContent = "You have not played my quiz before. \
     Why not try again and beat yourself?";
@@ -339,12 +318,12 @@ function returnInputValue() {
 
 // called in returnInputValue function
 function getHighScores(){
-  console.log("function running");
+  // console.log("function running");
   var showLastUserName = localStorage.getItem("Name");
   var showLastUserScore = localStorage.getItem("Score");
   var showScoreboard = localStorage.getItem("storedScore");
   var scoreObject = JSON.parse(showScoreboard);
-  console.log("scoreObject", scoreObject);
+  // console.log("scoreObject", scoreObject);
 
   if (localStorage.getItem("storedScore") != null){
     scoreBoard = JSON.parse(showScoreboard);
@@ -377,13 +356,13 @@ function getHighScores(){
 function getInputValue(){
 
   var userName = document.getElementById("name").value;
-  console.log("user inputted = " + userName);
-  console.log("saveScore2 = " + saveScore);
+  // console.log("user inputted = " + userName);
+  // console.log("saveScore2 = " + saveScore);
 
   scoreBoard.push( { Name: userName, Score: saveScore } );
-  console.log("scoreBoard = " + scoreBoard);
-  console.log("user inputted 2 = " + userName);
-  console.log("saveScore = " + saveScore);
+  // console.log("scoreBoard = " + scoreBoard);
+  // console.log("user inputted 2 = " + userName);
+  // console.log("saveScore = " + saveScore);
 
   localStorage.setItem("Name", userName);
   localStorage.setItem("Score", saveScore);

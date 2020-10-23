@@ -27,6 +27,8 @@ The project can be found at: https://github.com/Samwakelam/04_WEB_API_CODING_QUI
 
 I have used css and javascript to run my html.
 
+![Screenshot of the application](assets/images/screenshot.png)
+
 ## Usage
 
 I have made a couple of amendments to the way the quiz works. 
