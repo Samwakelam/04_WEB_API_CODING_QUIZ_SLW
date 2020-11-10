@@ -102,6 +102,9 @@ endQuizButton.addEventListener("click", startEndQuiz);
 var tryAgainButton = document.getElementById("restart-btn");
 tryAgainButton.addEventListener("click", tryAgain);
 
+var clearHistoryButton = document.getElementById("clear-history-btn");
+clearHistoryButton.addEventListener("click", clearHistory);
+
 // counter variables 
 
 var timeCounter = 0;
@@ -128,7 +131,7 @@ var questionContainer = document.querySelector("div.question-container>h3");
 
 // start the game 
 function startGame(){
-    console.log("game started");
+    // console.log("game started");
     document.getElementById("welcome").classList.add("hide");
     document.getElementById("question").classList.remove("hide");
     document.getElementById("start-instruction").classList.add("hide");
@@ -136,8 +139,6 @@ function startGame(){
     document.getElementById("end-btn").classList.remove("hide"); 
     document.getElementById("quizQuestions").classList.remove("hide"); 
     document.getElementById("indicator").classList.remove("hide"); 
-    // document.getElementById("").classList.remove("hide"); 
-
 
     startTimer(); 
     showQuestion();
@@ -167,8 +168,8 @@ var questionHeading = document.getElementById("question");
 
 // called in the start game function
 function showQuestion(){
-    console.log("show question has been initiated");
-    console.log("quizSet.length = " + quizSet.length);
+    // console.log("show question has been initiated");
+    // console.log("quizSet.length = " + quizSet.length);
     
     var questionToShow = quizSet[quizSetIndex];
     questionHeading.textContent = questionToShow.question;
@@ -282,6 +283,10 @@ function endQuiz() {
   document.getElementById("quizQuestions").classList.add("hide");
   document.getElementById("end-btn").classList.add("hide");
   document.getElementById("restart-btn").classList.remove("hide");
+  document.getElementById("clear-history-btn").classList.remove("hide");
+
+  document.getElementById("name-btn").classList.remove("hide");
+  document.getElementById("score-is-saved").classList.add("hide");
 
   welcome.innerHTML = "Game Over!";
   
@@ -300,6 +305,7 @@ function endQuiz() {
 
 var scoreBoard = [];
 
+
 // called at endQuiz function
 function returnInputValue() {
   // console.log("localStorage get name" , localStorage.getItem("Name"));
@@ -315,7 +321,6 @@ function returnInputValue() {
   
 }
 
-
 // called in returnInputValue function
 function getHighScores(){
   // console.log("function running");
@@ -324,22 +329,17 @@ function getHighScores(){
   var showScoreboard = localStorage.getItem("storedScore");
   var scoreObject = JSON.parse(showScoreboard);
   // console.log("scoreObject", scoreObject);
-
-  if (localStorage.getItem("storedScore") != null){
+  if(localStorage.getItem("storedScore") == null){
+    highScoreTable.textContent = "You have not played my quiz before. \
+    Why not try again and beat yourself?";
+  } else if (localStorage.getItem("storedScore") != null){
     scoreBoard = JSON.parse(showScoreboard);
+    // Sort scores highest to lowest
+    scoreObject.sort(function(a,b) {
+      return b.Score - a.Score;
+    });
   }
 
-  // Sort scores highest to lowest
-  scoreObject.sort(function(a,b) {
-    return b.Score - a.Score;
-  });
-
-  // if (scoreObject.length > 3){
-  //   console.log("if is fireing");
-  //   console.log("scoreObject.length", scoreObject.length);
-  //   scoreObject.length = scoreObject.length -1;
-  // };
-  
   var showHighScores = "";
   for (let index = 0; index < scoreBoard.length; index++) {
     showHighScores += scoreObject[index].Name + " = " + scoreObject[index].Score + "<br>";
@@ -350,7 +350,6 @@ function getHighScores(){
   + "<br/>" + "Highscores:" + "<br>" + showHighScores;
 
 }
-  
 
 //called on button click name-btn "save your score"
 function getInputValue(){
@@ -368,20 +367,28 @@ function getInputValue(){
   localStorage.setItem("Score", saveScore);
   localStorage.setItem("storedScore", JSON.stringify(scoreBoard));
 
+  showScoreHasSaved();
   return scoreBoard;
 
 }
-  
+
+function showScoreHasSaved() {
+  document.getElementById("name-btn").classList.add("hide");
+  document.getElementById("score-is-saved").classList.remove("hide");
+  getHighScores();
+}
+
 
 // Called on button click restart-btn "try again" 
 function tryAgain(){
-  console.log("game re-started");
+  // console.log("game re-started");
   document.getElementById("question").classList.add("hide");
   document.getElementById("start-instruction").classList.remove("hide");
   document.getElementById("start-btn").classList.remove("hide");
   document.getElementById("indicator").classList.remove("hide");
   document.getElementById("end-btn").classList.add("hide");
   document.getElementById("restart-btn").classList.add("hide");
+  document.getElementById("clear-history-btn").classList.add("hide");
   document.getElementById("high-score").classList.add("hide"); 
   document.getElementById("nameInput").classList.add("hide");
 
@@ -398,5 +405,12 @@ function tryAgain(){
   saveScore = 0;
   quizSetIndex = 0;
 
+}
+
+function clearHistory(){
+  console.log("function fired");
+  localStorage.clear();
+  scoreBoard = [];
+  getHighScores();
 }
 

@@ -113,6 +113,10 @@ p {
     width: 100%;
 }
 
+p#score-is-saved {
+    margin: 5px;
+}
+
 button {
     color: black;
     background-color: white;
