@@ -78,6 +78,8 @@ function getHighScores(){
 I need to clean up a little on the responsive webpage. 
 (Update:19.10.2020) There is jerking on the page when the input field is typed into, would love some feedback here? 
 
+(Update:10.11.2020) Added a score saved indicator as feedback requested. I also added a clear highscores function button. 
+
 ## Credits 
 
 Thanks go to:
